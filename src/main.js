@@ -1,6 +1,7 @@
 import store from './store/store';
 import { addNote } from './actions/actions';
 import { removeNote } from './actions/actions';
+import { showAll } from './actions/actions';
 
 // ------ HTML references ------
 let notesUList = document.getElementById('notes');
@@ -46,6 +47,7 @@ addNoteForm.addEventListener('submit', (e) => {
     let title = addNoteTitle.value;
     let content = addNoteContent.value;
     store.dispatch(addNote(title, content));
+    store.dispatch(showAll());
   });
 
 function setDeleteNoteButtonsEventListeners() {
@@ -67,8 +69,8 @@ store.subscribe(() => {
 // I'm just testing how dispatching an action to the store works here.
 // This is not crucial to the functionality of the app.  
 console.log('Before:', store.getState());
-store.dispatch(addNote('One', 'One content'));
-store.dispatch(addNote('Two', 'Two content'));
-store.dispatch(addNote('Three', 'Three content'));
+// store.dispatch(addNote('One', 'One content'));
+// store.dispatch(addNote('Two', 'Two content'));
+// store.dispatch(addNote('Three', 'Three content'));
 console.log('After:', store.getState());  
 
