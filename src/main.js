@@ -1,5 +1,6 @@
 import store from './store/store';
 import { addNote } from './actions/actions';
+import { removeNote } from './actions/actions';
 
 // ------ HTML references ------
 let notesUList = document.getElementById('notes');
@@ -8,10 +9,11 @@ let addNoteTitle = addNoteForm['title'];
 let addNoteContent = addNoteForm['content'];
 
 // ------ Redux ------
+// An action is being dispatched to the store 
+// (see setDeleteNoteButtonsEventListeners function below for corresponding event listener).
 function deleteNote(index) {
-  
-  // console.log(index);
-}
+    store.dispatch(removeNote(index));
+  } 
 
 function renderNotes() {
     let notes = store.getState().notes;
@@ -62,6 +64,8 @@ store.subscribe(() => {
     renderNotes();
   });
 
+// I'm just testing how dispatching an action to the store works here.
+// This is not crucial to the functionality of the app.  
 console.log('Before:', store.getState());
 store.dispatch(addNote('One', 'One content'));
 store.dispatch(addNote('Two', 'Two content'));
