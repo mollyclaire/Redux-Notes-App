@@ -14,15 +14,37 @@ function deleteNote(index) {
 }
 
 function renderNotes() {
-  setDeleteNoteButtonsEventListeners();
-}
+    let notes = store.getState().notes;
+    
+    notesUList.innerHTML = '';
+    // For all of the notes in the state, create a new noteItem variable which includes
+    // a list item of a title, a button with the data-id of index, and the content.
+    notes.map((note, index) => {
+      let noteItem = `
+        <li>
+          <b>${ note.title }</b>
+          <button data-id="${ index }">x</button>
+          <br />
+          <span>${ note.content }</span>
+        </li>
+      `;
+      // Add the new noteItem to the page.
+      notesUList.innerHTML += noteItem;
+    });
+    
+    setDeleteNoteButtonsEventListeners();
+  }
 
 // ------ Event Listeners ------
+// Here we are dispatching an action to our store. The action creator object
+// returns an object with the content and values, which is the content we put into the form.
 addNoteForm.addEventListener('submit', (e) => {
-  e.preventDefault();
-
-  // console.log('Title:', addNoteTitle.value, 'Content:', addNoteContent.value);
-});
+    e.preventDefault();
+    
+    let title = addNoteTitle.value;
+    let content = addNoteContent.value;
+    store.dispatch(addNote(title, content));
+  });
 
 function setDeleteNoteButtonsEventListeners() {
   let buttons = document.querySelectorAll('ul#notes li button');
@@ -34,11 +56,15 @@ function setDeleteNoteButtonsEventListeners() {
   }
 }
 
-// ------ Render the initial Notes ------
-renderNotes();
+// ------ Render the Notes ------
+// Here we take advantage of Redux's store object, which includes the subscribe function.
+store.subscribe(() => {
+    renderNotes();
+  });
 
 console.log('Before:', store.getState());
 store.dispatch(addNote('One', 'One content'));
 store.dispatch(addNote('Two', 'Two content'));
 store.dispatch(addNote('Three', 'Three content'));
 console.log('After:', store.getState());  
+
