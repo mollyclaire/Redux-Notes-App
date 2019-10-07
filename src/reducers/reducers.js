@@ -1,3 +1,6 @@
+// NOTE: Each reducer has it's own state, which might be different from the app state.
+// In this app, we only have one reducer (the root reducer), so it ends up being the state of our app.
+
 import { ADD_NOTE } from '../actions/actions';
 import { REMOVE_NOTE } from '../actions/actions';
 
