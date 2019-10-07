@@ -1,3 +1,6 @@
+import store from './store/store';
+import { addNote } from './actions/actions';
+
 // ------ HTML references ------
 let notesUList = document.getElementById('notes');
 let addNoteForm = document.getElementById('add-note');
@@ -33,3 +36,9 @@ function setDeleteNoteButtonsEventListeners() {
 
 // ------ Render the initial Notes ------
 renderNotes();
+
+console.log('Before:', store.getState());
+store.dispatch(addNote('One', 'One content'));
+store.dispatch(addNote('Two', 'Two content'));
+store.dispatch(addNote('Three', 'Three content'));
+console.log('After:', store.getState());  
