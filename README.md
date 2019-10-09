@@ -4,4 +4,6 @@ I recently created this note-taking app in order to better understand Redux, and
 ### Ok so first thing’s first -- what even is Redux? 
 
 ![Image of Redux definition](./images/Redux-def.png)
+![Image of Reducer definition](./images/Reducers.png)
+
 
