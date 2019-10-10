@@ -1,0 +1,16 @@
+* {
+    box-sizing: border-box;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+h1 {
+    text-align: center;
+}
+
+.add {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    text-align: center;
+    height: 400px;
+}

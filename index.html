@@ -4,24 +4,27 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Redux Notes</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <title>Remind Me</title>
+
 </head>
 <body>
 
-  <h1>Redux Notes App</h1>
-  <h3>Add a Note</h3>
+<h1>Remind Me</h1>
+  <section class="add">
   <form id="add-note">
     Title: <br /> 
     <input type="text" name="title">
     <br />
-    Content: <br />
+    Don't forget about... <br />
     <textarea name="content" cols="30" rows="5"></textarea>
     <br />
-    <button type="submit">Add Note</button>
+    <button type="submit">Save</button>
   </form>
+</section>
   
   <hr />
-
+<section class="all">
   <h3>All Notes</h3>
   <ul id="notes">
     <li>
@@ -31,8 +34,10 @@
       <span>Note Content</span>
     </li>
   </ul>
+</section>
 
   <script src="./dist/bundle.js"></script>
   
 </body>
 </html>
+
