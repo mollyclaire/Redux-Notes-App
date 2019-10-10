@@ -5,8 +5,7 @@ import reducers from '../reducers/reducers';
 // It's not necessary to define an initial state.
 let initialState = {
     notes: [
-      { title: 'You are awesome', content: 'No, wait, I meant legendary!' },
-      { title: 'Ooops', content: 'I was talking to myself' }
+      { title: 'Cognitive Bias', content: 'Listen to The Cognitive Bias podcast this week.' }
     ],
     visibility: 'AWESOME_TAG'
   };
@@ -20,3 +19,4 @@ export default createStore(
     window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 );
 
+i 
